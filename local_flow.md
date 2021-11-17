@@ -25,7 +25,7 @@ Local Agent
 $ prefect agent local start
 
 
-Run FLow
+Run Flow
 --------
 
 Go to UI and run

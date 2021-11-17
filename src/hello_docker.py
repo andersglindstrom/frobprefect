@@ -15,4 +15,4 @@ with Flow("docker-hello-flow") as flow:
     say_hello()
 
 # Register the flow under the "docker_example" project
-flow.register(project_name="tutorial", labels=["docker_flows"])
+flow.register(project_name="docker_test", labels=["docker_flows"])
