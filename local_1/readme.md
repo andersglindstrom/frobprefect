@@ -102,6 +102,8 @@ Check UI for flow run success. To find the flow run:
 * Click `Flows` tab in the dashboard
 * Click `Run` in the flow panel
 * Click the most recent flow run
+  * Note: my ad blocker (uBlock) blocked following links to
+    flow runs so I had to turn it off for `localhost`
 * Click the 'Logs' tab in the flow run panel
 
 It should have the following entry somewhere:
