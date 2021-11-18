@@ -45,8 +45,8 @@ $ prefect agent docker start --log-level DEBUG -l docker_flows --show-flow-logs
 
 Check in UI that agent has been registered
 
-Run Flow in UI
---------------
+Run Flow
+--------
 
 In a new terminal, do the following:
 
