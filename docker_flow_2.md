@@ -11,33 +11,57 @@ Wait for ASCII art displaying "Prefect Server" to appear.
 
 Confirm that server is running using the UI at http://localhost:8080
 
-Create flow
-------------
+Build Docker image
+------------------
 
 In a new terminal, do the following:
+
+:; docker build -f Dockerfile src -t hello_docker_2_image:latest
+
+Create flow from inside container
+---------------------------------
+
+In same terminal as previous step, run bash in a container using the
+image from the previous step:
+
+$ docker run --rm -it prefect_hello_docker_2 bash
+
+You should now be running bash in the container as `root`.
 
 Set backend to `server` (rather than the default value of `cloud`)
 
 ```
-$ prefect backend server
+# prefect backend server
 ```
 
-Create project `hello\_docker\_project`
+Set server endpoint to the host machine. Using `localhost` will not work.
+In my case, my desktop machine is 10.1.2.9. Obviously, you'll have to use
+the address of whatever machine you're using.
 
 ```
-$ prefect create project hello_docker_project
+# export PREFECT__SERVER__HOST=http://10.1.2.9
+```
+
+Create project `hello\_docker\_2\_project`
+
+```
+# prefect create project hello_docker_2_project
 ```
 
 Register flow with server
 
 ```
-$ python python/hello_docker.py
+# python hello_docker_2.py
 ```
 
 Start the docker agent
 ----------------------
 
-In the same terminal as the previous step, do the following:
+Exit from the container of the previous step:
+
+```
+# exit
+```
 
 ```
 $ prefect agent docker start --log-level DEBUG -l docker_flows --show-flow-logs
@@ -51,7 +75,7 @@ Run Flow in UI
 In a new terminal, do the following:
 
 ```
-$ prefect run --project hello_docker_project -n hello_docker_flow
+$ prefect run --project hello_docker_2_project -n hello_docker_2_flow
 ```
 
 The agent logging (in the terminal that has the agent running in it), should

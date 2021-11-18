@@ -17,7 +17,7 @@ In UI under "Project"
 Register Flow
 -------------
 
-$ python src/hello.py
+$ python python/hello.py
 
 Local Agent
 -----------
