@@ -1,3 +1,8 @@
+Virtual environment
+-------------------
+
+See [this page](../readme.md).
+
 Start Prefect Server
 --------------------
 

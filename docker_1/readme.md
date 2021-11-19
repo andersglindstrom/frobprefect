@@ -5,6 +5,11 @@ that is, by simply executing the python module. The docker storage will build
 a new image based on the `prefecthq/prefect` with the addition of some
 representation of the flow, I guess as a serialized object.
 
+Virtual environment
+-------------------
+
+See [this page](../readme.md).
+
 Run Server
 ----------
 
