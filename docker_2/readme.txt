@@ -13,6 +13,10 @@ Wait for ASCII art displaying "Prefect Server" to appear.
 
 Confirm that server is running using the UI at http://localhost:8080
 
+Note that, ideally, we would not pass the `--expose` option to the server but
+it doesn't work without it. See this bug report for details:
+https://github.com/PrefectHQ/prefect/issues/4963.
+
 Build Docker image
 ------------------
 
@@ -22,7 +26,7 @@ In a new terminal, do the following:
 $ cd frobprefect
 $ source venv/frobprefect/bin/activate
 $ cd docker_2
-$ docker build -f Dockerfile -t prefect_docker_2_image:latest .
+$ docker build -t prefect_docker_2_image:latest .
 ```
 
 Register flow with Prefect server
@@ -47,7 +51,7 @@ Start the docker agent
 In the same terminal as the previous step, start a Prefect docker agent:
 
 ```
-$ prefect agent docker start -l docker_flows --show-flow-logs
+$ prefect agent docker start -l docker_flows --show-flow-logs --network prefect-server
 ```
 
 Check in UI that agent has been registered
