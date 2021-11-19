@@ -7,12 +7,12 @@ from prefect.storage import Module
 @task
 def say_hello():
     logger = prefect.context.get("logger")
-    logger.info("Hello, docker!")
+    logger.info("Hello, docker 2!")
 
-with Flow("hello_docker_2_flow") as flow:
+with Flow("docker_2_flow") as flow:
     flow.storage = Module("hello_docker_2")
-    flow.run_config = DockerRun(image="hello_docker_2_image")
+    flow.run_config = DockerRun(image="prefect_docker_2_image")
     say_hello()
 
 if __name__ == "__main__":
-    flow.register(project_name="hello_docker_2_project", labels=["docker_flows"])
+    flow.register(project_name="docker_2_project", labels=["docker_flows"])

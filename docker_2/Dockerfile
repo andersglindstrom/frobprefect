@@ -3,6 +3,8 @@ FROM prefecthq/prefect:latest
 RUN apt-get update
 RUN apt-get install -y telnet
 
+COPY config.toml /root/.prefect
+
 WORKDIR /app
 
-COPY hello_docker_2.py .
+COPY docker_2.py .
