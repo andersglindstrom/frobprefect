@@ -65,6 +65,7 @@ In a new terminal, do the following:
 $ cd frobprefect
 $ source venv/frobprefect/bin/activate
 $ prefect run --project docker_2_project -n docker_2_flow
+```
 
 The agent's output should eventually contain something like the following:
 
