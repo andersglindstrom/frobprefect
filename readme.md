@@ -17,5 +17,5 @@ $VIRTUAL_ENV` (yielding `frobprefect`) can be used in your bash prompt.
 Do the examples in the following order. Each one has its own `readme.md`
 
 * [local_1](./local_1/readme.md)
-* `docker_1`
-* `docker_2`
+* [docker_1](./docker_1/readme.md)
+* [docker_2](./docker_2/readme.md)
