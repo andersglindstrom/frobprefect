@@ -10,7 +10,7 @@ def say_hello():
     logger.info("Hello, docker 2!")
 
 with Flow("docker_2_flow") as flow:
-    flow.storage = Module("hello_docker_2")
+    flow.storage = Module("docker_2")
     flow.run_config = DockerRun(image="prefect_docker_2_image")
     say_hello()
 
