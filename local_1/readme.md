@@ -44,7 +44,7 @@ In the same terminal as previously:
 
 ```
 $ cd local_1
-$ python hello.py
+$ python local_1.py
 ```
 Output should look something like this:
 ```
