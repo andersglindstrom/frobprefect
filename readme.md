@@ -19,3 +19,7 @@ Do the examples in the following order. Each one has its own `readme.md`
 * [local_1](./local_1/readme.md)
 * [docker_1](./docker_1/readme.md)
 * [docker_2](./docker_2/readme.md)
+
+I have had troubles with Docker networking with Prefect. Here's a description:
+
+* [docker_local_host_problem](./docker_2/readme_docker_host_network_problem.md)
