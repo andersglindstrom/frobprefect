@@ -10,8 +10,13 @@ def say_hello():
     logger.info("Hello, docker 2!")
 
 with Flow("docker_2_flow") as flow:
-    flow.storage = Module("docker_2")
-    flow.run_config = DockerRun(image="prefect_docker_2_image")
+    flow.storage = Module("flows.docker_2")
+    flow.run_config = DockerRun(
+        image="prefect_docker_2_image",
+        host_config={
+            "auto_remove": False
+        }
+    )
     say_hello()
 
 if __name__ == "__main__":

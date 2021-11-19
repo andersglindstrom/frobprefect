@@ -22,50 +22,38 @@ In a new terminal, do the following:
 $ cd frobprefect
 $ source venv/frobprefect/bin/activate
 $ cd docker_2
-$ docker build -f Dockerfile -t prefect_docker_2:latest .
+$ docker build -f Dockerfile -t prefect_docker_2_image:latest .
 ```
 
-Create flow from inside container
+Register flow with Prefect server
 ---------------------------------
 
-In same terminal as previous step, run bash in a container using the
-image from the previous step:
-
-$ docker run --network prefect-server --rm -it prefect_docker_2 bash
-
-You should now be running bash in the container as `root`.
-
-Create project `docker_2_project`
+In the same terminal as previous step, create a project with the following
+command:
 
 ```
-# prefect create project docker_2_project
+$ prefect create project docker_2_project
 ```
 
-Register flow with server
+Next, register the flow with the server:
 
 ```
-# python docker_2.py
+$ docker run --network prefect-server --rm prefect_docker_2_image python -m flows.docker_2
 ```
 
 Start the docker agent
 ----------------------
 
-Exit from the container of the previous step:
+In the same terminal as the previous step, start a Prefect docker agent:
 
 ```
-# exit
-```
-
-Your now back in the host machine. Start the agent:
-
-```
-$ prefect agent docker start --log-level DEBUG -l docker_flows --show-flow-logs
+$ prefect agent docker start -l docker_flows --show-flow-logs
 ```
 
 Check in UI that agent has been registered
 
-Run Flow in UI
---------------
+Run the flow
+------------
 
 In a new terminal, do the following:
 
@@ -73,3 +61,13 @@ In a new terminal, do the following:
 $ cd frobprefect
 $ source venv/frobprefect/bin/activate
 $ prefect run --project docker_2_project -n docker_2_flow
+
+The agent's output should eventually contain something like the following:
+
+```
+[2021-11-19 19:56:17+0000] INFO - prefect.CloudFlowRunner | Beginning Flow run for 'docker_2_flow'
+[2021-11-19 19:56:17+0000] INFO - prefect.CloudTaskRunner | Task 'say_hello': Starting task run...
+[2021-11-19 19:56:17+0000] INFO - prefect.say_hello | Hello, docker 2!
+[2021-11-19 19:56:17+0000] INFO - prefect.CloudTaskRunner | Task 'say_hello': Finished task run for task with final state: 'Success'
+[2021-11-19 19:56:17+0000] INFO - prefect.CloudFlowRunner | Flow run SUCCESS: all reference tasks succeeded
+```
