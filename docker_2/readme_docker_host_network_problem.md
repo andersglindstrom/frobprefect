@@ -40,7 +40,7 @@ $ source venv/frobprefect/bin/activate
 $ prefect server start
 ```
 
-Note that we do ___not___ pass the `--expose` option to the server. It we _were_ to pass `--expose` the error below does not occur.
+Note that we do ___not___ pass the `--expose` option to the server. It we _were_ to pass the `--expose` option to the server, the error below would not occur.
 
 Wait for ASCII art displaying "Prefect Server" to appear.
 
