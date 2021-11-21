@@ -1,3 +1,29 @@
+This example exposes a problem that I am having with Prefect. Here are the platform details:
+
+```
+$ uname  -a
+Linux parami 5.11.0-40-generic #44~20.04.2-Ubuntu SMP Tue Oct 26 18:07:44 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 20.04.3 LTS
+Release:	20.04
+Codename:	focal
+
+$ prefect diagnostics
+{
+  "config_overrides": {},
+  "env_vars": [],
+  "system_information": {
+    "platform": "Linux-5.11.0-40-generic-x86_64-with-glibc2.29",
+    "prefect_backend": "server",
+    "prefect_version": "0.15.9",
+    "python_version": "3.8.10"
+  }
+}
+```
+
 Virtual environment
 -------------------
 
