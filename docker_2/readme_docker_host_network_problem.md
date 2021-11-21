@@ -96,7 +96,7 @@ $ source venv/frobprefect/bin/activate
 $ prefect run --project docker_2_project -n docker_2_flow
 ```
 
-The agent's output should eventually contain something like the following:
+The agent logs an error. It seems to be failing to connect to the host `host.docker.internal`:
 
 ```
 [2021-11-19 20:29:30,628] INFO - agent | Completed deployment of flow run 141b1696-539f-4156-a2a8-62d0378de8e9
