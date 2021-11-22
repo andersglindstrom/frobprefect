@@ -12,7 +12,7 @@ $ prefect server start
 
 Wait for ASCII art displaying "Prefect Server" to appear.
 
-Confirm that server is running using the UI at http://localhost:8080
+Confirm that server is running using the [UI](http://localhost:8080).
 
 Set backend to `server`
 ----------------------
@@ -39,7 +39,7 @@ In the same terminal as previous step:
 $ prefect create project local_1_project
 ```
 
-Check in UI (http://localhost:8080) that project has been created. Projects
+Check in [UI](http://localhost:8080) that project has been created. Projects
 appear in the dashboard at the far right in a drop down.
 
 Register flow with server
@@ -60,7 +60,7 @@ Output should look something like this:
 ```
 The label here is the local hostname. It will be different for you.
 
-Check UI for new flow
+Check [UI](http://localhost:8080) for new flow
 
 Run a local agent
 -----------------
